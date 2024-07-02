@@ -3,6 +3,18 @@ version: '3'
 
 services:
 
+  homarr:
+    container_name: homarr
+    image: ghcr.io/ajnart/homarr:latest
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ~/docker/configs/homarr:/app/data/configs
+      - ~/docker/configs/homarr/icons:/app/public/icons
+      - ~/docker/configs/homarr/data:/data
+    ports:
+      - '7575:7575'
+
   plex:
     image: lscr.io/linuxserver/plex:latest
     container_name: plex
