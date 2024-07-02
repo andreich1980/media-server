@@ -61,21 +61,6 @@ services:
       - 9696:9696
     restart: unless-stopped
 
-  bazarr:
-    image: lscr.io/linuxserver/bazarr:latest
-    container_name: bazarr
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/Moscow
-    volumes:
-      - ~/docker/configs/bazarr:/config
-      - /mnt/storage/media/movies:/movies
-      - /mnt/storage/media/shows:/tv
-    ports:
-      - 6767:6767
-    restart: unless-stopped
-
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
